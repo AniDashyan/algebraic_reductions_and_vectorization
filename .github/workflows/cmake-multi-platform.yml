@@ -67,18 +67,3 @@ jobs:
           echo "Executable not found: $executable_path"
           exit 1
         fi
-
-    - name: Debug with GDB (Linux)
-      if: matrix.os == 'ubuntu-latest'
-      working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      shell: bash
-      run: |
-        sudo apt-get update && sudo apt-get install -y gdb
-        executable="./main"
-        if [ -f "$executable" ]; then
-          echo "run" > gdb_commands.txt
-          echo "bt full" >> gdb_commands.txt
-          echo "Running GDB:"
-          gdb --batch --quiet -x gdb_commands.txt "$executable"
-        fi
-      continue-on-error: true
