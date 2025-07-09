@@ -93,13 +93,13 @@ double measure_time(Func func, int iters = 1000) {
     return std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / double(iters);
 }
 
-void print_results(const std::string& name, double time_us, double baseline_time = 0.0) {
+void print_results(const std::string& name, double time_ns, double baseline_time = 0.0) {
     std::cout << std::left << std::setw(25) << name 
               << std::right << std::setw(10) << std::fixed << std::setprecision(2) 
-              << time_us << " us";
+              << time_ns << " ns";
     
     if (baseline_time > 0.0) {
-        double speedup = baseline_time / time_us;
+        double speedup = baseline_time / time_ns;
         std::cout << " (speedup: " << std::setprecision(2) << speedup << "x)";
     }
     std::cout << std::endl;
