@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(MSVC)
     set(COMPILE_OPTIONS /O2 /arch:AVX2 /openmp)
 else()
-    set(COMPILE_OPTIONS -O3 -march=native -mtune=native -fopt-info-vec-optimized -ftree-vectorize -ffast-math)
+    set(COMPILE_OPTIONS -O3 -march=native -mtune=native -ftree-vectorize -ffast-math)
 endif()
 
 add_executable(main main.cpp)
