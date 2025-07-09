@@ -9,6 +9,14 @@
 #include <omp.h>
 #endif
 
+#if defined(_MSC_VER)
+    #define OMP_PARALLEL_FOR _Pragma("omp parallel for")
+#elif defined(__GNUC__) || defined(__clang__)
+    #define OMP_PARALLEL_FOR _Pragma("omp parallel for simd")
+#else
+    #define OMP_PARALLEL_FOR
+#endif
+
 
 //  Original implementation
 void original_operation(const std::vector<int>& a, const std::vector<int>& b, 
@@ -37,7 +45,7 @@ void openmp_parallel_simd(const std::vector<int>& a, const std::vector<int>& b,
     const int kb = 3;
     const int kc = -10;
     
-    #pragma omp parallel for simd
+    OMP_PARALLEL_FOR
     for (size_t i = 0; i < a.size(); ++i) {
         out[i] = ka * a[i] + kb * b[i] + kc;
     }
