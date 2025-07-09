@@ -4,7 +4,6 @@ project(algebraic_reductions_and_vectorization)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(OpenMP REQUIRED)
 
 # Compiler-specific options
 if(MSVC)
@@ -15,4 +14,3 @@ endif()
 
 add_executable(main main.cpp)
 target_compile_options(main PRIVATE ${COMPILE_OPTIONS})
-target_link_libraries(main OpenMP::OpenMP_CXX)
