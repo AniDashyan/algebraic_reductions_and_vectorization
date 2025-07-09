@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(MSVC)
     set(COMPILE_OPTIONS /O2 /arch:AVX2 /openmp)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    set(COMPILE_OPTIONS -O3 -march=native -mtune=native -ffast-math -Rpass-analysis=loop-vectorize)
+    set(COMPILE_OPTIONS -O3 -march=native -mtune=native -ffast-math -Rpass=loop-vectorize -Rpass-missed=loop-vectorize -Rpass-analysis=loop-vectorize)
 else() # Assume GCC or compatible
     set(COMPILE_OPTIONS -O3 -march=native -mtune=native -fopt-info-vec-optimized -ftree-vectorize -ffast-math)
 endif()

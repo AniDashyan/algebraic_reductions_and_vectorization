@@ -2,9 +2,13 @@
 #include <vector>
 #include <chrono>
 #include <random>
-#include <omp.h>        // For OpenMP
 #include <immintrin.h> // For AVX2 instructions 
 #include <iomanip>
+
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 
 //  Original implementation
 void original_operation(const std::vector<int>& a, const std::vector<int>& b, 
