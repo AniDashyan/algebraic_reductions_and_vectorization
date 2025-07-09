@@ -82,7 +82,7 @@ double measure_time(Func func, int iters = 1000) {
     
     auto end = std::chrono::steady_clock::now();
     
-    return std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / double(iters);
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / double(iters);
 }
 
 void print_results(const std::string& name, double time_us, double baseline_time = 0.0) {
