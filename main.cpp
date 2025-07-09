@@ -46,7 +46,7 @@ void openmp_parallel_simd(const std::vector<int>& a, const std::vector<int>& b,
     const int kc = -10;
     
     OMP_PARALLEL_FOR
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         out[i] = ka * a[i] + kb * b[i] + kc;
     }
 }
