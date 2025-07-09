@@ -1,0 +1,1 @@
+# algebraic_reductions_and_vectorization
